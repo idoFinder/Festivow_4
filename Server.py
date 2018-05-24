@@ -2,16 +2,13 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import DB_handler
 from Engine_connector import app
 import json
-from flask_webpack import Webpack
 
 
 
 # app = Flask(__name__)
 print("__name__ is ", __name__)
 
-# initiating the Webpack
-# webpack = Webpack()
-# webpack.init_app(app)
+
 
 # main page
 @app.route('/',methods=['GET', 'POST'])
@@ -47,9 +44,9 @@ def register():
             if not request.is_json:
                 print("json was not found")
                 return "<h2>Problem with the Json</h2>"
-            DB_handler.create_user(data)
+            result = DB_handler.create_user(data)
             print("finish db update")
-            return json.dumps(data)
+            return json.dumps(result)
 
     except Exception as e:
          print("exception")

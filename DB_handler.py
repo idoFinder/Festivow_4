@@ -1,6 +1,7 @@
 from Engine_connector import Users
 from Engine_connector import Shows
 from Engine_connector import db
+import json
 
 
 
@@ -27,6 +28,8 @@ def delete_user(delete_user_json):
     db.session.commit()
     print("user: " + name +" was deleted")
     db.session.close()
+    ret_json = '''{"valid": "True"}'''
+    return json.loads(ret_json)
 
 
 def user_login(login_json):
