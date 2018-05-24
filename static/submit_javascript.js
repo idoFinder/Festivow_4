@@ -32,7 +32,7 @@ function postData(url, data) {
       body: data // must match 'Content-Type' header
   })
   .then(response => response.json()) // parses response to JSON
-  .then(data => console.log(data))
+  .then(data => treatWithJson(data))
   .catch(error => console.error(error));
 }
 
