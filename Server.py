@@ -45,7 +45,8 @@ def register():
                 print("json was not found")
                 return "<h2>Problem with the Json</h2>"
             result = DB_handler.create_user(data)
-            print("finish db update")
+            print(result)
+            # test
             return json.dumps(result)
 
     except Exception as e:
