@@ -18,6 +18,8 @@ def create_user(user_json):
     db.session.commit()
     print("success!")
     db.session.close()
+    ret_json = '''{"valid": "True"}'''
+    return json.loads(ret_json)
 
 
 def delete_user(delete_user_json):
